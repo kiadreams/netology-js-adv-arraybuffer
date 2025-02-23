@@ -1,1 +1,1 @@
-# Homework on containers in JS
+# Homework on ArrayBuffer in JS

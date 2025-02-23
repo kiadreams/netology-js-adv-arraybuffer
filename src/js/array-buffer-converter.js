@@ -9,7 +9,6 @@ export default class ArrayBufferConverter {
   }
 }
 
-
 export function getBuffer() {
   const data = '{"data":{"user":{"id":1,"name":"Hitman","level":10}}}';
   return (input => {
@@ -21,8 +20,3 @@ export function getBuffer() {
     return buffer;
   })(data);
 }
-
-
-const converter = new ArrayBufferConverter();
-converter.load(getBuffer());
-console.log(converter.toString());

@@ -8,7 +8,3 @@ export default class Magician extends MagicalCharacter {
     this.health = 170;
   }
 }
-
-const magician = new Magician();
-console.log(magician.className);
-console.log(magician.health);
