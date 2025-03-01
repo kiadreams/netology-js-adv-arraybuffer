@@ -1,21 +1,25 @@
 export default class MagicalCharacter {
-  constructor(className= undefined) {
+  constructor(className = undefined, distance = 1) {
     this.className = className;
-    this.health = 200;
+    this.distance = distance;
     this._attack = 100;
-    this._attackModifier = 0;
-    this.isDaturaApplied = false;
+    this._isDrugged = false;
   }
 
   get attack() {
-    return this._attack > this._attackModifier ? this._attack - this._attackModifier : 0;
+    const currentAttack = this._attack - this._attack / 10 * (this.distance - 1);
+    return this._isDrugged ? currentAttack - Math.log2(this.distance) * 5 : currentAttack;
   }
 
-  set attack(cell) {
-    if (cell > 0) {
-      const cellModifier = this._attack / 10 * (cell - 1);
-      const daturaModifier = this.isDaturaApplied ? Math.log2(cell) * 5 : 0;
-      this._attackModifier = cellModifier + daturaModifier;
-    }
+  set attack(valueOfAttack) {
+    this._attack = valueOfAttack;
+  }
+
+  get drug() {
+    return this._isDrugged;
+  }
+
+  set drug(value) {
+    this._isDrugged = value;
   }
 }
